@@ -1,0 +1,16 @@
+## Shortcuts ##
+CTRL + k	Open this page :)
+CTRL + r	Open bash history with fuzzy find
+CTRL + a	Jump to the start of a line <==
+CTRL + e	Jump to the end of a line ==>
+CTRL + l	Clear screen :o
+
+ALT  + .	Insert argument of previous command into your new one ^-^
+
+## Useful Commands ##
+!!	Re-run last command
+sudo !!	Re-run last command with sudo :)
+
+## WOMIER ##
+FN + s	(3s) Toggle Mac/Window macros.
+FN + a	(3s) Toggle Fn/Media keys.
