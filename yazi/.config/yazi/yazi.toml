@@ -1,0 +1,26 @@
+[mgr]
+show_hidden = true
+sort_by = "natural"
+sort_translit = true
+sort_sensitive = false
+sort_reverse = false
+sort_dir_first = true
+linemode = "size"
+show_symlink = true
+mouse_events =  ["scroll","click"]
+
+
+[opener]
+edit = [
+    { run = '${EDITOR:-vi} "$@"', block = true, desc = "Edit" },
+]
+run = [
+    {run = 'exec "$@"', block = true, desc = "Run bash..."}
+]
+
+[open]
+rules = [
+    { mime = 'text/*', use = "edit"},
+    { mime = '*.sh', use = "run"},
+    { mime = '*', use = "edit"},
+]

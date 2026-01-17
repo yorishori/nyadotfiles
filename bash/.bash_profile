@@ -1,9 +1,9 @@
-if [ -n "$BASH_VERSION" ]; then
-	if [ -f "$HOME/.config/bash/.bashrc" ]; then
-		. "$HOME/.config/bash/.bashrc"
-	fi
+if [[ -n "$BASH_VERSION" ]]; then
+    if [ -f "$HOME/.bashrc" ]; then
+        . "$HOME/.bashrc"
+    fi
 fi
 
-#sleep 5
-
-#plymouth quit --retain-splash
+if [[ -z $DISPLAY ]] && [[ $(tty) == /dev/tty1 ]]; then
+    . $HOME/bin/env-start.sh
+fi

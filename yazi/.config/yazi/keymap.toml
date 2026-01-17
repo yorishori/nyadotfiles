@@ -1,0 +1,10 @@
+[mgr]
+prepend_keymap = [
+    { on = [ "?" ], run = "help", desc = "Open help" },
+    { on = [ "q" ], run = "quit", desc = "Quit without picking" },
+]
+
+[pick]
+prepend_keymap = [
+    { on = [ "<C-p>" ], run = "close --submit", desc = "Confirm" },
+]

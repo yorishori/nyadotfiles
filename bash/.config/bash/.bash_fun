@@ -1,5 +1,5 @@
 # KEYBINDS
 keybinds_bash(){
-	keybinds $HOME/.config/bash/.keybinds
+    keybinds $HOME/.config/bash/.keybinds
 }
 bind -x '"\C-k": keybinds_bash' 2>/dev/null
