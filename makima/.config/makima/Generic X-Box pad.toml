@@ -1,0 +1,37 @@
+[remap]
+# LB/RB to Left/Right Click
+BTN_TL = ["BTN_LEFT"]
+BTN_SOUTH = ["BTN_LEFT"]
+BTN_TR = ["BTN_RIGHT"]
+
+# B to Ctrl+W
+BTN_EAST = ["KEY_LEFTCTRL", "KEY_W"]
+# Y to Ctrl+T
+BTN_NORTH = ["KEY_LEFTCTRL", "KEY_T"]
+
+
+[movements]
+# D-pad to Horizontal and Vertical Scroll
+BTN_DPAD_UP = "SCROLL_DOWN"
+BTN_DPAD_DOWN = "SCROLL_UP"
+BTN_DPAD_LEFT = "SCROLL_LEFT"
+BTN_DPAD_RIGHT = "SCROLL_RIGHT"
+
+[commands]
+# Select button to toggle launcher
+BTN_SELECT = ["qs -c noctalia-shell ipc call launcher toggle"]
+# Xbox button to toggle session menu
+BTN_MODE = ["qs -c noctalia-shell ipc call sessionMenu toggle"]
+
+[settings]
+SCROLL_SPEED = "5"
+SCROLL_ACCEL = "0.2"
+# Left Stick for mouse movement
+LSTICK = "cursor"
+LSTICK_SENSITIVITY = "6" 
+LSTICK_DEADZONE = "10"
+# Disabling Right Stick if not used, or set to "scroll"
+RSTICK = "disabled"
+# Standard for X-input/Xbox controllers
+16_BIT_AXIS = "true"
+GRAB_DEVICE = "true"
