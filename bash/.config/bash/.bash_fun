@@ -3,3 +3,11 @@ keybinds_bash(){
     keybinds $HOME/.config/bash/.keybinds
 }
 bind -x '"\C-k": keybinds_bash' 2>/dev/null
+
+function y() {
+    local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+    command yazi "$@" --cwd-file="$tmp"
+    IFS= read -r -d '' cwd < "$tmp"
+    [ "$cwd" != "$PWD" ] && [ -d "$cwd" ] && builtin cd -- "$cwd"
+    rm -f -- "$tmp"
+}
