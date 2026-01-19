@@ -12,15 +12,20 @@ mouse_events =  ["scroll","click"]
 
 [opener]
 edit = [
-    { run = '${EDITOR:-vi} "$@"', block = true, desc = "Edit" },
+    { run = '${EDITOR} "$@"', block = true, desc = "Edit File" }
 ]
 run = [
     {run = 'exec "$@"', block = true, desc = "Run bash..."}
 ]
+edit_folder = [
+    { run = 'cd "$1" && ${EDITOR} .', block = true, desc = "Open in NeoVim"}
+]
 
 [open]
 rules = [
-    { mime = 'text/*', use = "edit"},
-    { mime = '*.sh', use = "run"},
-    { mime = '*', use = "edit"},
+    { mime = "folder/local", use = "edit_folder" },
+    { name = "*.sh", use = ["edit", "run"] },
+    { mime = "text/shellscript", use = ["edit", "run"] },
+    { mime = "text/*", use = "edit" },
+    { mime = "*", use = "edit" }
 ]

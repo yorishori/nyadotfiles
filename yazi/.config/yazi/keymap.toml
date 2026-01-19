@@ -2,9 +2,11 @@
 prepend_keymap = [
     { on = [ "?" ], run = "help", desc = "Open help" },
     { on = [ "q" ], run = "quit", desc = "Quit without picking" },
+    { on = [ "M" ], run = "plugin mount", desc = "Open Mounting Plugin" },
+    { on = [ "g", "g"], run = "plugin lazygit", desk = "Open LazyGit" }
 ]
 
 [pick]
 prepend_keymap = [
-    { on = [ "<C-p>" ], run = "close --submit", desc = "Confirm" },
+    { on = [ "<C-p>" ], run = "close --submit", desc = "Confirm" }
 ]
