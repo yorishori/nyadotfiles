@@ -3,10 +3,17 @@ prepend_keymap = [
     { on = [ "?" ], run = "help", desc = "Open help" },
     { on = [ "q" ], run = "quit", desc = "Quit without picking" },
     { on = [ "M" ], run = "plugin mount", desc = "Open Mounting Plugin" },
-    { on = [ "g", "g"], run = "plugin lazygit", desk = "Open LazyGit" }
+    { on = [ "g", "g"], run = "plugin lazygit", desc = "Open LazyGit" },
+    { on = [ "g", "x"], run = "plugin chmod", desc = "Change Permisions" },
+    { on = [ "g", "c"], run = "plugin ouch", desc = "Compress with ouch" },
+    { 
+        on = [ "g", "y"]
+        , run = "shell 'file=\"$1\"; mime=$(file --mime-type -b \"$file\"); wl-copy --type \"$mime\" < \"$file\" && notify-send \"Clipboard\" \"Copied $(basename \"$file\")\"'"
+        , desc = "Copy file to clipboard" 
+    }
 ]
 
 [pick]
 prepend_keymap = [
-    { on = [ "<C-p>" ], run = "close --submit", desc = "Confirm" }
+    { on = [ "g", "s" ], run = "close --submit", desc = "Confirm" }
 ]

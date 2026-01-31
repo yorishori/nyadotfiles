@@ -20,6 +20,9 @@ run = [
 edit_folder = [
     { run = 'cd "$1" && ${EDITOR} .', block = true, desc = "Open in NeoVim"}
 ]
+extract = [
+    { run = 'ouch d -y "$@"', desc = "Extract here with ouch", for = "unix" }
+]
 
 [open]
 rules = [
@@ -27,5 +30,15 @@ rules = [
     { name = "*.sh", use = ["edit", "run"] },
     { mime = "text/shellscript", use = ["edit", "run"] },
     { mime = "text/*", use = "edit" },
+    { mime = "application/{*zip,tar,bzip2,7z*,rar,xz,zstd,java-archive}", use = "extract" },
     { mime = "*", use = "edit" }
+]
+
+[plugin]
+prepend_fetchers = [
+    { id = "git", url = "*", run = "git" },
+    { id = "git", url = "*/", run = "git" }
+]
+prepend_previewers = [
+    { mime = "application/{*zip,tar,bzip2,7z*,rar,xz,zstd,java-archive}", run  = "ouch" }
 ]
