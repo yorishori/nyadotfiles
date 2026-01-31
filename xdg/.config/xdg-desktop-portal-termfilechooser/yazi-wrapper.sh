@@ -16,11 +16,7 @@ path="$4"
 out="$5"
 
 cmd="yazi"
-termcmd="${TERMCMD:-ghostty}"
-
-if [[ "$termcmd" == *"ghostty"* ]] && [[ "$termcmd" != *"-e"* ]]; then
-    termcmd="$termcmd -e"
-fi
+termcmd="ghostty --confirm-close-surface=false -e"
 
 args=()
 
@@ -49,7 +45,7 @@ fi
 
 #sh -c "$command"
 
-$termcmd $cmd "${arg[@]}"
+$termcmd $cmd "${args[@]}"
 
 if [ "$directory" = "1" ]; then
     if [ ! -s "$out" ] && [ -s "$out"".1" ]; then

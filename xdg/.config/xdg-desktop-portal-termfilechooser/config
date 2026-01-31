@@ -2,10 +2,11 @@
 cmd=yazi-wrapper.sh
 default_dir=$HOME/Downloads
 ; Uncomment to skip creating destination save files with instructions in them
-; create_help_file=0
+create_help_file=0
 ; Uncomment and edit the line below to change the terminal emulator command
-; env=TERMCMD=ghostty
+env=TERMCMD='ghostty --confirm-close-surface=false -e'
 
 ; Mode must be one of 'suggested', 'default', or 'last'.
-open_mode=suggested
-save_mode=suggested
+open_mode=default
+save_mode=default
+
