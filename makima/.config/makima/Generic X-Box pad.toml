@@ -1,37 +1,41 @@
+# Event codes are found at /usr/include/linux/input-event-codes.h
+# Run `evtest` to follow the event names of keypresses on the controller
 [remap]
-# LB/RB to Left/Right Click
-BTN_TL = ["BTN_LEFT"]
-BTN_SOUTH = ["BTN_LEFT"]
-BTN_TR = ["BTN_RIGHT"]
+BTN_SOUTH = ["BTN_LEFT"] # A -> LClick
+BTN_NORTH = ["BTN_RIGHT"] # X -> RClick
+BTN_TL = ["BTN_MIDDLE"] # LT -> MClick
 
-# B to Ctrl+W
-BTN_EAST = ["KEY_LEFTCTRL", "KEY_W"]
-# Y to Ctrl+T
-BTN_NORTH = ["KEY_LEFTCTRL", "KEY_T"]
+BTN_WEST = ["BTN_EXTRA"] # Y -> forward
+BTN_EAST = ["BTN_SIDE"] # B -> back
 
-
-[movements]
-# D-pad to Horizontal and Vertical Scroll
-BTN_DPAD_UP = "SCROLL_DOWN"
-BTN_DPAD_DOWN = "SCROLL_UP"
-BTN_DPAD_LEFT = "SCROLL_LEFT"
-BTN_DPAD_RIGHT = "SCROLL_RIGHT"
+# D-pad to arrows
+BTN_DPAD_UP = ["KEY_UP"]
+BTN_DPAD_DOWN = ["KEY_DOWN"]
+BTN_DPAD_LEFT = ["KEY_LEFT"]
+BTN_DPAD_RIGHT = ["KEY_RIGHT"]
 
 [commands]
 # Select button to toggle launcher
 BTN_SELECT = ["qs -c noctalia-shell ipc call launcher toggle"]
-# Xbox button to toggle session menu
-BTN_MODE = ["qs -c noctalia-shell ipc call sessionMenu toggle"]
+# Start button to toggle session menu
+BTN_START = ["qs -c noctalia-shell ipc call sessionMenu toggle"]
+# X-Box Button to disable KM mode
+BTN_MODE = ["/home/yori/bin/start-makima.sh 0"]
 
 [settings]
 SCROLL_SPEED = "5"
-SCROLL_ACCEL = "0.2"
+SCROLL_ACCEL = "0.1"
+INVERT_SCROLL_AXIS = "true"
+CURSOR_SPEED = "5"
+CURSOR_ACCEL = "0.1"
 # Left Stick for mouse movement
 LSTICK = "cursor"
-LSTICK_SENSITIVITY = "6" 
+LSTICK_SENSITIVITY = "10" 
 LSTICK_DEADZONE = "10"
 # Disabling Right Stick if not used, or set to "scroll"
-RSTICK = "disabled"
+RSTICK = "scroll"
+RSTICK_SENSITIVITY = "10" 
+RSTICK_DEADZONE = "10"
 # Standard for X-input/Xbox controllers
 16_BIT_AXIS = "true"
 GRAB_DEVICE = "true"
