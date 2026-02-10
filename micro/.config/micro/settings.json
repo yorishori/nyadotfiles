@@ -1,0 +1,9 @@
+{
+    "aspell.check": "on",
+    "autoindent": false,
+    "colorscheme": "catppuccin-mocha",
+    "cursorline": true,
+    "ruler": false,
+    "softwrap": true,
+    "wordwrap": true
+}
