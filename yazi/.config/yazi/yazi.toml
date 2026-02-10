@@ -24,12 +24,16 @@ extract = [
     { run = 'ouch d -y "$@"', desc = "Extract here with ouch", for = "unix" }
 ]
 
+edit_word = [
+    { run = 'micro "$@"', block = true, desc = "Open with Micro"}
+]
+
 [open]
 rules = [
     { mime = "folder/local", use = "edit_folder" },
     { name = "*.sh", use = ["edit", "run"] },
     { mime = "text/shellscript", use = ["edit", "run"] },
-    { mime = "text/*", use = "edit" },
+    { mime = "text/*", use = ["edit", "edit_word"] },
     { mime = "application/{*zip,tar,bzip2,7z*,rar,xz,zstd,java-archive}", use = "extract" },
     { mime = "*", use = "edit" }
 ]
