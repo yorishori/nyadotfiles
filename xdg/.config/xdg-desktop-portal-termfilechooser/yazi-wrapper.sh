@@ -16,12 +16,13 @@ path="$4"
 out="$5"
 
 cmd="yazi"
-termcmd="ghostty --confirm-close-surface=false -e"
+termcmd="ghostty --class=com.hypr.float --confirm-close-surface=false -e"
 
 args=()
 
 if [ "$save" = "1" ]; then
     # save a file
+    touch "$path"
     args+=(--chooser-file="$out" "$path")
 elif [ "$directory" = "1" ]; then
     # upload files from a directory
@@ -34,16 +35,7 @@ else
     args+=(--chooser-file="$out" "$path")
 fi
 
-#command="$termcmd $cmd"
-
-#for arg in "$@"; do
-#    # escape double quotes
-#    escaped=$(printf "%s" "$arg" | sed 's/"/\\"/g')
-#    # escape special
-#    command="$command \"$escaped\""
-#done
-
-#sh -c "$command"
+echo "${args[@]}, $(dirname "$path")" >> $HOME/temp.txt
 
 $termcmd $cmd "${args[@]}"
 
