@@ -2,7 +2,7 @@
 BOLD='\033[1m'
 NC='\033[0m'
 
-APPS="bash bat fonts ghostty hypr makima micro nvim pipewire systemd xdg yazi"
+APPS="bash bat fonts ghostty hypr makima micro noctalia nvim pipewire systemd xdg yazi"
 VERBOSITY=3
 
 case "$1" in
