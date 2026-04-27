@@ -35,10 +35,9 @@ else
     args+=(--chooser-file="$out" "$path")
 fi
 
-echo "${args[@]}, $(dirname "$path")" >> $HOME/temp.txt
 
 $termcmd $cmd "${args[@]}"
-
+echo "AFTER: chooser file contents: $(cat "$out" 2>/dev/null || echo '<empty>')" >> "$HOME/temp.log"
 if [ "$directory" = "1" ]; then
     if [ ! -s "$out" ] && [ -s "$out"".1" ]; then
         cat "$out"".1" > "$out"
@@ -47,3 +46,5 @@ if [ "$directory" = "1" ]; then
         rm "$out"".1"
     fi
 fi
+
+
