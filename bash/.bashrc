@@ -3,7 +3,7 @@ set +o history
 export HISTFILE=~/.bash_history
 export HISTSIZE=1000
 export HISTFILESIZE=5000
-export HISTCONTROL=ignoreboth:erasedups
+export HISTCONTROL=erasedups
 shopt -s histappend
 shopt -s cmdhist
 
