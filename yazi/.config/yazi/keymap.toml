@@ -10,7 +10,8 @@ prepend_keymap = [
         on = [ "g", "y"]
         , run = "shell 'file=\"$1\"; mime=$(file --mime-type -b \"$file\"); wl-copy --type \"$mime\" < \"$file\" && notify-send \"Clipboard\" \"Copied $(basename \"$file\")\"'"
         , desc = "Copy file to clipboard" 
-    }
+    },
+    { on = ["g", "z"], run = "plugin yafg", desc = "Fuzzy grep."}
 ]
 
 [pick]

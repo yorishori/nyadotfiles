@@ -17,9 +17,6 @@ edit = [
 run = [
     {run = 'exec "$@"', block = true, desc = "Run bash..."}
 ]
-edit_folder = [
-    { run = 'cd "$1" && ${EDITOR} .', block = true, desc = "Open in NeoVim"}
-]
 extract = [
     { run = 'ouch d -y "$@"', desc = "Extract here with ouch", for = "unix" }
 ]
@@ -27,14 +24,20 @@ extract = [
 edit_word = [
     { run = 'micro "$@"', block = true, desc = "Open with Micro"}
 ]
-
+view_image = [
+    { run = 'photoflare "$@"', desc = "Open with Photoflare" }
+]
+view_video = [
+    { run = 'vlc "$@"', desc = "Open with VLC" }
+]
 [open]
 rules = [
-    { mime = "folder/local", use = "edit_folder" },
     { name = "*.sh", use = ["edit", "run"] },
     { mime = "text/shellscript", use = ["edit", "run"] },
     { mime = "text/*", use = ["edit", "edit_word"] },
     { mime = "application/{*zip,tar,bzip2,7z*,rar,xz,zstd,java-archive}", use = "extract" },
+    { mime = "image/*", use = "view_image" },
+    { mime = "video/*", use = "view_video" },
     { mime = "*", use = "edit" }
 ]
 
@@ -44,5 +47,6 @@ prepend_fetchers = [
     { id = "git", url = "*/", run = "git" }
 ]
 prepend_previewers = [
-    { mime = "application/{*zip,tar,bzip2,7z*,rar,xz,zstd,java-archive}", run  = "ouch" }
+    { mime = "application/{*zip,tar,bzip2,7z*,rar,xz,zstd,java-archive}", run  = "ouch" },
+    { mime = "image/svg+xml", run = "magick" }
 ]
