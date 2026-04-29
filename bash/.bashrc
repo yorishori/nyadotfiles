@@ -12,7 +12,9 @@ export EDITOR="/usr/bin/nvim"
 export VISUAL="/usr/bin/nvim"
 export PATH="/home/yori/bin:$PATH"
 export BAT_THEME="Catppuccin Mocha"
-export "MICRO_TRUECOLOR=1"
+
+export MOZ_ENABLE_WAYLAND=1
+export PROTON_ENABLE_NGX_UPDATER=0
 
 #EXTERAL SOURCES
 fzf=/usr/share/fzf/key-bindings.bash
