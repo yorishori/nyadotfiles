@@ -1,0 +1,136 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 36,
+    "margin-top": 8,
+    "margin-left": 16,
+    "margin-right": 16,
+    "spacing": 0,
+    "exclusive": true,
+
+    "modules-left": [
+        "custom/session",
+        "custom/sep",
+        "clock",
+        "custom/sep",
+        "custom/mic",
+        "custom/camera",
+        "custom/screenrec"
+    ],
+
+    "modules-center": [
+        "hyprland/workspaces"
+    ],
+
+    "modules-right": [
+        "tray",
+        "custom/sep",
+        "bluetooth",
+        "network",
+        "pulseaudio",
+        "custom/updates"
+    ],
+
+    // ── Left ────────────────────────────────────────────────────────────────
+
+    "custom/session": {
+        "format": "⏻",
+        "tooltip": false,
+        "on-click": "session-open.sh"
+    },
+
+    "custom/sep": {
+        "format": "|",
+        "tooltip": false
+    },
+
+    "clock": {
+        "format": "{:%H:%M  %a %d %b}",
+        "tooltip": false,
+        "on-click": "cal-open.sh"
+    },
+
+    "custom/mic": {
+        "exec": "mic-status.sh",
+        "interval": 2,
+        "return-type": "json",
+        "tooltip": false,
+        "on-click": "mic-open.sh"
+    },
+
+    "custom/camera": {
+        "exec": "camera-status.sh",
+        "interval": 3,
+        "return-type": "json",
+        "tooltip": false
+    },
+
+    "custom/screenrec": {
+        "exec": "screenrec-status.sh",
+        "interval": 2,
+        "return-type": "json",
+        "tooltip": false,
+        "on-click": "screenrec-open.sh"
+    },
+
+    // ── Center ───────────────────────────────────────────────────────────────
+
+    "hyprland/workspaces": {
+        "format": "{icon}",
+        "on-click": "activate",
+        "sort-by-number": true,
+        "active-only": false,
+        "persistent-workspaces": {},
+        "format-icons": {
+            "active": "●",
+            "default": "○",
+            "empty": "○"
+        },
+        // Only show workspaces that exist (dynamic)
+        "show-special": false,
+        "all-outputs": false
+    },
+
+    // ── Right ────────────────────────────────────────────────────────────────
+
+    "tray": {
+        "icon-size": 14,
+        "spacing": 8,
+        "show-passive-items": true
+    },
+
+    "bluetooth": {
+        "exec": "bt-status.sh",
+        "interval": 1,
+        "return-type": "json",
+        "tooltip": true,
+        "on-click": "bt-open.sh"
+    },
+
+    "network": {
+        "exec": "wifi-status.sh",
+        "interval": 1,
+        "return-type": "json",
+        "tooltip": true,
+        "on-click": "wifi-open.sh"
+    },
+
+    "pulseaudio": {
+        "format": "{icon}",
+        "format-muted": "󰝟",
+        "format-icons": {
+            "default": ["󰕿", "󰖀", "󰕾"]
+        },
+        "tooltip": true,
+        "on-click": "audio-open.sh"
+    },
+
+    "custom/updates": {
+        "exec": "update-status.sh",
+        "interval": 3600,
+        "return-type": "json",
+        "tooltip": true,
+        "on-click": "update-open.sh",
+        "format": "󰚰 {}"
+    }
+}

@@ -1,0 +1,185 @@
+/* Catppuccin Mocha palette */
+@define-color base      #1e1e2e;
+@define-color mantle    #181825;
+@define-color crust     #11111b;
+@define-color surface0  #313244;
+@define-color surface1  #45475a;
+@define-color surface2  #585b70;
+@define-color overlay0  #6c7086;
+@define-color overlay1  #7f849c;
+@define-color overlay2  #9399b2;
+@define-color subtext0  #a6adc8;
+@define-color subtext1  #bac2de;
+@define-color text      #cdd6f4;
+@define-color lavender  #b4befe;
+@define-color blue      #89b4fa;
+@define-color sapphire  #74c7ec;
+@define-color sky       #89dceb;
+@define-color teal      #94e2d5;
+@define-color green     #a6e3a1;
+@define-color yellow    #f9e2af;
+@define-color peach     #fab387;
+@define-color maroon    #eba0ac;
+@define-color red       #f38ba8;
+@define-color mauve     #cba6f7;
+@define-color pink      #f5c2e7;
+@define-color flamingo  #f2cdcd;
+@define-color rosewater #f5e0dc;
+
+/* ── Global reset ─────────────────────────────────────────────────────────── */
+* {
+    font-family: "JetBrainsMono Nerd Font", "Symbols Nerd Font", monospace;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 0;
+    padding: 0;
+    margin: 0;
+    min-height: 0;
+}
+
+/* ── Bar ────────────────────────────────────────────────── */
+window#waybar {
+    background-color: alpha(@base, 0.55);
+    border: 1px solid @base;
+    border-radius: 28px;
+    margin-bottom: 5px;
+}
+
+/* ── Shared: all interactive modules ─────────────────────────────────────── */
+#custom-session,
+#clock,
+#custom-mic,
+#custom-camera,
+#custom-screenrec,
+#bluetooth,
+#network,
+#pulseaudio,
+#custom-updates {
+    color: alpha(@overlay1, 0.5);  
+    padding: 2px 11px;
+    margin: 4px 1px;
+    border-radius: 16px;
+    background: transparent;
+    transition: background 0.15s ease, color 0.15s ease;
+}
+
+#custom-mic.active,
+#custom-camera.active,
+#custom-screenrec.active,
+#bluetooth.active,
+#network.active,
+#pulseaudio.active {
+    color: @green;  
+}
+
+/* Hover */
+#custom-session:hover,
+#clock:hover,
+#custom-mic:hover,
+#custom-camera:hover,
+#custom-screenrec:hover,
+#bluetooth:hover,
+#network:hover,
+#pulseaudio:hover,
+#custom-updates:hover {
+    background: alpha(@surface0, 0.60);
+}
+
+
+
+/* ── Audio ─────────────────────────────────────────────────────────────────  */
+#pulseaudio.muted:hover {
+    color: @maroon;
+}
+
+/* ── Separator ────────────────────────────────────────────────────────────── */
+#custom-sep {
+    color: alpha(@surface2, 0.40);
+    font-size: 11px;
+    font-weight: 400;
+    padding: 0 2px;
+    margin: 0;
+    border-radius: 0;
+    transition: none;
+}
+
+/* ── Session button (distinct accent) ────────────────────────────────────── */
+#custom-session {
+    color: @sapphire;
+    margin-left: 5px;
+}
+#custom-session:hover {
+    background: alpha(@surface0, 0.60);
+    color: @pink;
+}
+
+/* ── Clock (text, not an icon — override font size back to normal) ────────── */
+#clock {
+    color: @text;
+    letter-spacing: 0.02em;
+    padding: 2px 13px;
+}
+#clock:hover {
+    background: alpha(@surface0, 0.60);
+    color: @lavender;
+}
+
+/* ── Updates (text counter alongside icon — keep readable size) ───────────── */
+#custom-updates {
+    padding-right: 14px;
+    margin-right: 5px;
+}
+#custom-updates.has-updates {
+    color: @yellow;
+}
+#custom-updates.has-updates:hover {
+    background: alpha(@surface0, 0.60);
+    color: @yellow;
+}
+
+/* ── Workspaces ───────────────────────────────────────────────────────────── */
+#workspaces {
+    padding: 2px 8px;
+    margin: 4px 2px;
+    background: transparent;
+}
+#workspaces button {
+    background: transparent;
+    color: alpha(@overlay1, 0.4);
+    font-size: 10px;
+    padding: 0 4px;
+    min-width: 0;
+    border-radius: 99px;
+    transition: color 0.15s ease, background 0.15s ease;
+}
+#workspaces button.active {
+    color: @mauve;
+}
+/* ── Tray (nested container pill) ────────────────────────────────────────── */
+#tray {
+    background: alpha(@surface0, 0.38);
+    border: 1px solid alpha(@surface1, 0.30);
+    border-radius: 16px;
+    padding: 2px 10px;
+    margin: 4px 4px;
+    transition: none;
+}
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    color: @yellow;
+}
+
+/* ── Tooltip ──────────────────────────────────────────────────────────────── */
+tooltip {
+    background: @mantle;
+    border: 1px solid @surface1;
+    border-radius: 12px;
+    color: @text;
+    font-weight: 400;
+    font-size: 12px;
+    padding: 4px 10px;
+}
