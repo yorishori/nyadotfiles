@@ -1,0 +1,35 @@
+hl.config({binds {drag_threshold = 10}})
+
+-- Apps
+hl.bind("SUPER + ESCAPE",         hl.dsp.exec("session-open.sh"))
+hl.bind("SUPER + SHIFT + ESCAPE", hl.dsp.exec("hypr-float.sh --bin btop"))
+hl.bind("SUPER + SPACE",          hl.dsp.exec("menu-open.sh --apps"))
+hl.bind("SUPER + V",              hl.dsp.exec("menu-open.sh --clipboard"))
+hl.bind("SUPER + PERIOD",         hl.dsp.exec("menu-open.sh --kaomojis"))
+hl.bind("SUPER + B",              hl.dsp.exec("zen-bin"))
+hl.bind("SUPER + Y",              hl.dsp.exec("kitty -e yazi ~/"))
+hl.bind("SUPER + ENTER",          hl.dsp.exec("kitty"))
+
+-- Windows
+hl.bind("SUPER + F", hl.dsp.window.fullscreen_state({internal = 2, client = 0, action = "toggle"}))
+hl.bind("SUPER + mouse:272", hl.dsp.window.drag(), {mouse = true})
+hl.bind("SUPER + mouse:273", hl.dsp.window.resize(), {mouse = true})
+hl.bind("SUPER + Q", hl.dsp.window.kill())
+hl.bind("SUPER + J", hl.dsp.group.toggle())
+hl.bind("SUPER + UP", hl.dsp.window.move("u"))
+hl.bind("SUPER + DOWN", hl.dsp.window.move("d"))
+hl.bind("SUPER + LEFT", hl.dsp.window.move("l"))
+hl.bind("SUPER + RIGHT", hl.dsp.window.move("r"))
+hl.bind("SUPER + SHIFT + 1", hl.dsp.window.move({workspace = -1, follow = true}))
+hl.bind("SUPER + SHIFT + 2", hl.dsp.window.move({workspace = +1, follow = true}))
+
+-- Navigation
+hl.bind("SUPER + UP", hl.dsp.focus("u"))
+hl.bind("SUPER + DOWN", hl.dsp.focus("d"))
+hl.bind("SUPER + LEFT", hl.dsp.focus("l"))
+hl.bind("SUPER + RIGHT", hl.dsp.focus("r"))
+hl.bind("SUPER + TAB", hl.dsp.window.cycle_next({next = true}))
+hl.bind("SUPER + SHIFT + TAB", hl.dsp.window.cycle_next({next = false}))
+hl.bind("SUPER + 1", hl.dsp.focus({workspace = +1, on_current_monitor = true}))
+hl.bind("SUPER + 2", hl.dsp.focus({workspace = -1, on_current_monitor = true}))
+hl.bind("SUPER + S", hl.dsp.workspace.toggle_special("special"))
