@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
 PACMAN_COUNT=$(checkupdates 2>/dev/null | wc -l)
-
 AUR_COUNT=$(yay -Qua 2>/dev/null | wc -l)
 
 TOTAL=$(( PACMAN_COUNT + AUR_COUNT ))
