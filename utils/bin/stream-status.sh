@@ -5,13 +5,14 @@ get_json() {
     local ICON_ACTIVE="$2"
     local ICON_IDLE="$3"
     local LABEL="$4"
+    local CLASS="$5"
     local COUNT=$(echo "$STREAMS" | jq 'length')
 
     if [ "$COUNT" -gt 0 ]; then
         APPS=$(echo "$STREAMS" | jq -r 'join(", ")')
-        echo "{\"text\":\"$ICON_ACTIVE\",\"class\":\"active\",\"tooltip\":\"$LABEL: $APPS\"}"
+        echo "{\"text\":\"$ICON_ACTIVE\",\"class\":[\"active\",\"$CLASS\"],\"tooltip\":\"$LABEL: $APPS\"}"
     else
-        echo "{\"text\":\"$ICON_IDLE\",\"class\":\"\",\"tooltip\":\"$LABEL idle\"}"
+        echo "{\"text\":\"$ICON_IDLE\",\"class\":\"$CLASS\",\"tooltip\":\"$LABEL idle\"}"
     fi
 }
 
@@ -20,26 +21,41 @@ S=$(pw-dump)
 if [ $1 -eq 1 ]; then
     MIC=$(echo "$S" | jq '
     [
-        .[] 
-        | select(
+        .[] | select(
             .type == "PipeWire:Interface:Node" 
-            and .info.props["media.class"] == "Stream/Input/Audio") 
-        | .info.props["application.name"]
+            and .info.props["media.class"] == "Stream/Input/Audio"
+        ) | .info.props["application.name"]
     ] | unique')
 
-    get_json "$MIC" "󰍬" "󰍭" "Mic"
+    MUTED=$(echo "$S" | jq '
+    [
+        .[] | select(
+            .type == "PipeWire:Interface:Node" 
+            and .info.props["media.class"] == "Stream/Input/Audio"
+        ) | [.info.props["application.name"], .info.params.Props[0]["mute"]]
+    ] | unique' | 
+    jq '
+    [
+        .[] | select(
+            .[1] == true
+        ) | .[0]
+    ] | length')
+
+    if [ "$MUTED" -gt 0 ]; then
+        get_json "$MIC" "󰍬" "󰍭" "Mic" "muted"
+    else 
+        get_json "$MIC" "󰍬" "󰍭" "Mic"
+    fi
     
 elif [ $1 -eq 2 ]; then
     CAM=$(echo "$S" | jq '
     [
-        .[]
-        | select(
+        .[] | select(
             .type == "PipeWire:Interface:Node"
             and .info.props["media.class"] == "Video/Source"
             and .info.props["media.role"] == "Camera"
             and .info.state == "running"
-        )
-        | .info.props["application.name"]
+        ) | .info.props["application.name"]
     ] | unique')
     
     C=$(echo "$CAM" | jq 'length')

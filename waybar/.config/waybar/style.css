@@ -89,7 +89,7 @@ window#waybar {
 
 
 /* ── Audio ─────────────────────────────────────────────────────────────────  */
-#pulseaudio.muted:hover {
+#pulseaudio.muted {
     color: @maroon;
 }
 

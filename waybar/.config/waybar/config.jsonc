@@ -55,6 +55,7 @@
         "interval": 2,
         "return-type": "json",
         "tooltip": true,
+        "on-click": "mic-toggle.sh"
     },
 
     "custom/camera": {
