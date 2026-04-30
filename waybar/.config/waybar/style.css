@@ -93,6 +93,11 @@ window#waybar {
     color: @maroon;
 }
 
+/* ── Mic ─────────────────────────────────────────────────────────────────  */
+#custom-mic.muted {
+    color: @red;
+}
+
 /* ── Separator ────────────────────────────────────────────────────────────── */
 #custom-sep {
     color: alpha(@surface2, 0.40);
@@ -181,5 +186,5 @@ tooltip {
     color: @text;
     font-weight: 400;
     font-size: 12px;
-    padding: 4px 10px;
+    padding: 10px;
 }

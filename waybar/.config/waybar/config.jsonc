@@ -51,22 +51,21 @@
     },
 
     "custom/mic": {
-        "exec": "mic-status.sh",
+        "exec": "stream-status.sh 1",
         "interval": 2,
         "return-type": "json",
-        "tooltip": false,
-        "on-click": "mic-open.sh"
+        "tooltip": true,
     },
 
     "custom/camera": {
-        "exec": "camera-status.sh",
+        "exec": "stream-status.sh 2",
         "interval": 3,
         "return-type": "json",
         "tooltip": false
     },
 
     "custom/screenrec": {
-        "exec": "screenrec-status.sh",
+        "exec": "stream-status.sh 3",
         "interval": 2,
         "return-type": "json",
         "tooltip": false,
