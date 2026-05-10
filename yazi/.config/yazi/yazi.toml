@@ -32,7 +32,7 @@ view_video = [
 ]
 [open]
 rules = [
-    { name = "*.sh", use = ["edit", "run"] },
+    { url  = "*.sh", use = ["edit", "run"] },
     { mime = "text/shellscript", use = ["edit", "run"] },
     { mime = "text/*", use = ["edit", "edit_word"] },
     { mime = "application/{*zip,tar,bzip2,7z*,rar,xz,zstd,java-archive}", use = "extract" },
@@ -43,8 +43,8 @@ rules = [
 
 [plugin]
 prepend_fetchers = [
-    { id = "git", url = "*", run = "git" },
-    { id = "git", url = "*/", run = "git" }
+    { group = "git", url = "*", run = "git" },
+    { group = "git", url = "*/", run = "git" }
 ]
 prepend_previewers = [
     { mime = "application/{*zip,tar,bzip2,7z*,rar,xz,zstd,java-archive}", run  = "ouch" },

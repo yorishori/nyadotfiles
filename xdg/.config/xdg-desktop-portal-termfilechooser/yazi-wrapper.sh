@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/bin/sh
 # This wrapper script is invoked by xdg-desktop-portal-termfilechooser.
 #
 # For more information about input/output arguments read `xdg-desktop-portal-termfilechooser(5)`
@@ -14,9 +14,6 @@ directory="$2"
 save="$3"
 path="$4"
 out="$5"
-
-cmd="yazi"
-termcmd="ghostty --class=com.hypr.float --confirm-close-surface=false -e"
 
 args=()
 
@@ -36,7 +33,7 @@ else
 fi
 
 
-$termcmd $cmd "${args[@]}"
+kitty --class "nya-yazi-filechoose" --title "Choose File" -e yazi "${args[@]}"
 echo "AFTER: chooser file contents: $(cat "$out" 2>/dev/null || echo '<empty>')" >> "$HOME/temp.log"
 if [ "$directory" = "1" ]; then
     if [ ! -s "$out" ] && [ -s "$out"".1" ]; then
