@@ -1,0 +1,33 @@
+@import "theme.rasi"
+
+configuration {
+    modi:           "dmenu";
+    show-icons:     false;
+    disable-history: true;
+}
+
+window {
+    width: 520px;
+}
+
+listview {
+    lines:      10;
+    scrollbar:  false;
+    dynamic:    true;
+}
+
+prompt {
+    text-color: @accent;
+}
+
+entry {
+    placeholder:        "Search clipboard...";
+    placeholder-color:  @text-secondary;
+}
+
+/* Clip entries can be long — truncate gracefully */
+element-text {
+    vertical-align: 0.5;
+    highlight:      @accent;
+}
+

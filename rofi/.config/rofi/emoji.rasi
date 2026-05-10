@@ -1,0 +1,41 @@
+@import "theme.rasi"
+
+configuration {
+    modi:           "dmenu";
+    show-icons:     false;
+    disable-history: true;
+
+    display-dmenu: " ";
+}
+
+window {
+    width: 500px;
+}
+
+listview {
+    lines:      8;
+    columns:    3;
+    spacing:    4px;
+    scrollbar:  false;
+}
+
+prompt {
+    text-color: @accent;
+}
+
+entry {
+    placeholder:        "Search emoji...";
+    placeholder-color:  @text-secondary;
+}
+
+element {
+    border-radius:      8px;
+    padding:            10px;
+    horizontal-align:   0.5;
+}
+
+element-text {
+    font:               "JetBrainsMono Nerd Font 18";
+    horizontal-align:   0.5;
+    vertical-align:     0.5;
+}

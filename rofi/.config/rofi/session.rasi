@@ -1,0 +1,55 @@
+@import "theme.rasi"
+
+configuration {
+    show-icons:         false;
+    fixed-num-lines:    true;
+    disable-history:    true;
+}
+
+window {
+    width:  260px;
+    padding: 12px;
+}
+
+mainbox {
+    children:   [ listview ];
+    spacing:    0px;
+}
+
+listview {
+    orientation:    horizontal;
+    columns:        3;
+    lines:          1;
+    spacing:        4px;
+    scrollbar:      false;
+    dynamic:        false;
+}
+
+/* No inputbar at all */
+inputbar {
+    enabled: false;
+}
+
+element {
+    orientation:        vertical;
+    border-radius:      8px;
+    padding:            16px 20px;
+    background-color:   transparent;
+    horizontal-align:   0.5;
+}
+
+element selected {
+    background-color:   @bg-selected;
+    text-color:         @text-selected;
+}
+
+element-text {
+    font:               "JetBrainsMono Nerd Font 22";
+    horizontal-align:   0.5;
+    vertical-align:     0.5;
+}
+
+element-icon {
+    size: 0px;
+}
+

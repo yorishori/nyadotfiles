@@ -2,9 +2,9 @@
     "layer": "top",
     "position": "top",
     "height": 36,
-    "margin-top": 8,
-    "margin-left": 16,
-    "margin-right": 16,
+    "margin-top": 0,
+    "margin-left": 0,
+    "margin-right": 0,
     "spacing": 0,
     "exclusive": true,
 
@@ -25,9 +25,9 @@
     "modules-right": [
         "tray",
         "custom/sep",
-        "bluetooth",
-        "network",
-        "pulseaudio",
+        "custom/bluetooth",
+        "custom/network",
+        "custom/audio",
         "custom/updates"
     ],
 
@@ -36,7 +36,7 @@
     "custom/session": {
         "format": "⏻",
         "tooltip": false,
-        "on-click": "session-open.sh"
+        "on-click": "nyhud.sh rofi session"
     },
 
     "custom/sep": {
@@ -47,30 +47,31 @@
     "clock": {
         "format": "{:%H:%M  %a %d %b}",
         "tooltip": false,
-        "on-click": "cal-open.sh"
+        "on-click": "nylaunch.sh cal"
     },
 
     "custom/mic": {
-        "exec": "stream-status.sh 1",
+        "exec": "nybar.sh mic",
         "interval": 2,
         "return-type": "json",
-        "tooltip": true,
-        "on-click": "mic-toggle.sh"
+        "tooltip": false,
+        "signal": 2
+        "on-click": "nyhud.sh mic toggle"
     },
 
     "custom/camera": {
-        "exec": "stream-status.sh 2",
-        "interval": 3,
+        "exec": "nybar.sh camera",
+        "interval": 2,
         "return-type": "json",
         "tooltip": false
     },
 
     "custom/screenrec": {
-        "exec": "stream-status.sh 3",
+        "exec": "nybar.sh screenrec",
         "interval": 2,
         "return-type": "json",
         "tooltip": false,
-        "on-click": "screenrec-open.sh"
+        "on-click": "nyhud.sh rofi screen"
     },
 
     // ── Center ───────────────────────────────────────────────────────────────
@@ -99,38 +100,35 @@
         "show-passive-items": true
     },
 
-    "bluetooth": {
-        "exec": "bt-status.sh",
-        "interval": 1,
+    "custom/bluetooth": {
+        "exec": "nybar.sh bluetooth",
+        "interval": 2,
         "return-type": "json",
         "tooltip": true,
-        "on-click": "bt-open.sh"
+        "on-click": "nylaunch.sh bluetui"
     },
 
-    "network": {
-        "exec": "wifi-status.sh",
-        "interval": 1,
+    "custom/network": {
+        "exec": "nybar.sh network",
+        "interval": 2,
         "return-type": "json",
         "tooltip": true,
-        "on-click": "wifi-open.sh"
+        "on-click": "nylaunch.sh impala"
     },
 
-    "pulseaudio": {
-        "format": "{icon}",
-        "format-muted": "󰝟",
-        "format-icons": {
-            "default": ["󰕿", "󰖀", "󰕾"]
-        },
+    "custom/audio": {
+        "exec": "nybar.sh audio",
+        "interval": 2,
+        "return-type": "json",
         "tooltip": true,
-        "on-click": "audio-open.sh"
+        "on-click": "nylaunch.sh pulsemixer"
     },
 
     "custom/updates": {
-        "exec": "update-status.sh",
-        "interval": 3600,
+        "exec": "nybar.sh updates",
+        "interval": 1800,
         "return-type": "json",
         "tooltip": true,
-        "on-click": "update-open.sh",
-        "format": "󰚰 {}"
+        "on-click": "nylaunch.sh pacseek"
     }
 }

@@ -1,0 +1,196 @@
+* {
+    /* ── Catppuccin Mocha palette ──────────────────────────────── */
+    rosewater:  #f5e0dc;
+    flamingo:   #f2cdcd;
+    pink:       #f5c2e7;
+    mauve:      #cba6f7;
+    red:        #f38ba8;
+    maroon:     #eba0ac;
+    peach:      #fab387;
+    yellow:     #f9e2af;
+    green:      #a6e3a1;
+    teal:       #94e2d5;
+    sky:        #89dceb;
+    sapphire:   #74c7ec;
+    blue:       #89b4fa;
+    lavender:   #b4befe;
+    text:       #cdd6f4;
+    subtext1:   #bac2de;
+    subtext0:   #a6adc8;
+    overlay2:   #9399b2;
+    overlay1:   #7f849c;
+    overlay0:   #6c7086;
+    surface2:   #585b70;
+    surface1:   #45475a;
+    surface0:   #313244;
+    base:       #1e1e2e;
+    mantle:     #181825;
+    crust:      #11111b;
+
+    /* ── Semantic aliases ──────────────────────────────────────── */
+    accent:             @lavender;
+    bg-primary:         @base;
+    bg-secondary:       @mantle;
+    bg-selected:        @surface0;
+    bg-hover:           @surface1;
+    border-color:       @lavender;
+    text-primary:       @text;
+    text-secondary:     @subtext0;
+    text-selected:      @lavender;
+    text-active:        @green;
+
+    /* ── Rofi resets ───────────────────────────────────────────── */
+    background-color:   transparent;
+    text-color:         @text-primary;
+    border:             0px;
+    margin:             0px;
+    padding:            0px;
+    spacing:            0px;
+
+    font:               "JetBrainsMono Nerd Font 11";
+}
+
+/* ── Window ─────────────────────────────────────────────────────────────── */
+
+window {
+    background-color:   @bg-primary;
+    border:             2px solid;
+    border-color:       @border-color;
+    border-radius:      12px;
+    padding:            12px;
+    location:           center;
+    anchor:             center;
+    width:              480px;
+}
+
+/* ── Mainbox ─────────────────────────────────────────────────────────────── */
+
+mainbox {
+    children:       [ inputbar, listview ];
+    spacing:        8px;
+}
+
+/* ── Inputbar ────────────────────────────────────────────────────────────── */
+
+inputbar {
+    children:           [ prompt, entry ];
+    background-color:   @bg-secondary;
+    border-radius:      8px;
+    padding:            8px 12px;
+    spacing:            8px;
+}
+
+prompt {
+    text-color:     @accent;
+    vertical-align: 0.5;
+}
+
+entry {
+    placeholder:        "Type to search...";
+    placeholder-color:  @text-secondary;
+    vertical-align:     0.5;
+}
+
+/* ── Listview ────────────────────────────────────────────────────────────── */
+
+listview {
+    spacing:    2px;
+    scrollbar:  false;
+    dynamic:    true;
+}
+
+scrollbar {
+    width:              4px;
+    border-radius:      4px;
+    background-color:   @bg-secondary;
+    handle-color:       @accent;
+    handle-width:       4px;
+}
+
+/* ── Elements ────────────────────────────────────────────────────────────── */
+
+element {
+    border-radius:      8px;
+    padding:            8px 10px;
+    spacing:            10px;
+    background-color:   transparent;
+    cursor:             pointer;
+}
+
+element normal normal {
+    background-color:   transparent;
+    text-color:         @text-primary;
+}
+
+element normal active {
+    background-color:   transparent;
+    text-color:         @text-active;
+}
+
+element normal urgent {
+    background-color:   @red;
+    text-color:         @base;
+}
+
+element selected normal,
+element selected active {
+    background-color:   @bg-selected;
+    text-color:         @text-selected;
+}
+
+element selected urgent {
+    background-color:   @red;
+    text-color:         @base;
+}
+
+element alternate normal,
+element alternate active,
+element alternate urgent {
+    background-color:   transparent;
+    text-color:         @text-primary;
+}
+
+element alternate urgent {
+    text-color:         @text-urgent;
+}
+
+element-icon {
+    size:           22px;
+    vertical-align: 0.5;
+}
+
+element-text {
+    vertical-align: 0.5;
+    highlight: @accent;
+}
+
+/* ── Message (mode switcher label) ──────────────────────────────────────── */
+
+message {
+    padding:            4px 12px;
+}
+
+textbox {
+    text-color:     @text-secondary;
+    font:           "JetBrainsMono Nerd Font 10";
+}
+
+/* ── Mode switcher (tab indicator) ──────────────────────────────────────── */
+
+mode-switcher {
+    spacing:    4px;
+    padding:    4px 0px 0px 0px;
+}
+
+button {
+    border-radius:      6px;
+    padding:            4px 10px;
+    background-color:   @bg-secondary;
+    text-color:         @text-secondary;
+    cursor:             pointer;
+}
+
+button selected {
+    background-color:   @bg-selected;
+    text-color:         @accent;
+}

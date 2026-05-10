@@ -34,7 +34,6 @@ fi
 
 
 kitty --class "nya-yazi-filechoose" --title "Choose File" -e yazi "${args[@]}"
-echo "AFTER: chooser file contents: $(cat "$out" 2>/dev/null || echo '<empty>')" >> "$HOME/temp.log"
 if [ "$directory" = "1" ]; then
     if [ ! -s "$out" ] && [ -s "$out"".1" ]; then
         cat "$out"".1" > "$out"

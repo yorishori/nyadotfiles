@@ -1,0 +1,33 @@
+@import "theme.rasi"
+
+configuration {
+    modi:               "drun,calc";
+    show-icons:         true;
+    icon-theme:         "Papirus-Dark";
+    disable-history:    false;
+    scroll-method:      1;
+    kb-mode-next:       "Tab";
+
+    display-calc: " ";
+    display-drun: " ";
+ }
+
+window {
+    width: 480px;
+}
+
+listview {
+    lines:      8;
+    scrollbar:  false;
+    dynamic:    true;
+}
+
+prompt {
+    text-color: @accent;
+}
+
+entry {
+    placeholder:        "Launch app...";
+    placeholder-color:  @text-secondary;
+}
+

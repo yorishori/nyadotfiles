@@ -40,9 +40,10 @@
 
 /* ── Bar ────────────────────────────────────────────────── */
 window#waybar {
-    background-color: alpha(@base, 0.55);
-    border: 1px solid @base;
-    border-radius: 28px;
+    background-color: @base;
+    border-bottom: 1px solid @lavender;
+    padding: 0;
+    margin-top: 0px;
     margin-bottom: 5px;
 }
 
@@ -52,11 +53,10 @@ window#waybar {
 #custom-mic,
 #custom-camera,
 #custom-screenrec,
-#bluetooth,
-#network,
-#pulseaudio,
-#custom-updates {
-    color: alpha(@overlay1, 0.5);  
+#custom-bluetooth,
+#custom-network,
+#custom-audio,
+#custom-updates { 
     padding: 2px 11px;
     margin: 4px 1px;
     border-radius: 16px;
@@ -64,39 +64,24 @@ window#waybar {
     transition: background 0.15s ease, color 0.15s ease;
 }
 
-#custom-mic.active,
-#custom-camera.active,
-#custom-screenrec.active,
-#bluetooth.active,
-#network.active,
-#pulseaudio.active {
-    color: @green;  
-}
+.muted {color: alpha(@overlay1, 0.5);}
+.active {color: @green;}
+.warning {color: @yellow;}
+.error {color: @red;}
 
 /* Hover */
 #custom-session:hover,
 #clock:hover,
 #custom-mic:hover,
-#custom-camera:hover,
 #custom-screenrec:hover,
-#bluetooth:hover,
-#network:hover,
-#pulseaudio:hover,
+#custom-bluetooth:hover,
+#custom-network:hover,
+#custom-audio:hover,
 #custom-updates:hover {
     background: alpha(@surface0, 0.60);
 }
 
 
-
-/* ── Audio ─────────────────────────────────────────────────────────────────  */
-#pulseaudio.muted {
-    color: @maroon;
-}
-
-/* ── Mic ─────────────────────────────────────────────────────────────────  */
-#custom-mic.muted {
-    color: @red;
-}
 
 /* ── Separator ────────────────────────────────────────────────────────────── */
 #custom-sep {
@@ -128,19 +113,6 @@ window#waybar {
 #clock:hover {
     background: alpha(@surface0, 0.60);
     color: @lavender;
-}
-
-/* ── Updates (text counter alongside icon — keep readable size) ───────────── */
-#custom-updates {
-    padding-right: 14px;
-    margin-right: 5px;
-}
-#custom-updates.has-updates {
-    color: @yellow;
-}
-#custom-updates.has-updates:hover {
-    background: alpha(@surface0, 0.60);
-    color: @yellow;
 }
 
 /* ── Workspaces ───────────────────────────────────────────────────────────── */
