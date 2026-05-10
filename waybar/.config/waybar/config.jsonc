@@ -55,7 +55,7 @@
         "interval": 2,
         "return-type": "json",
         "tooltip": false,
-        "signal": 2
+        "signal": 2,
         "on-click": "nyhud.sh mic toggle"
     },
 
