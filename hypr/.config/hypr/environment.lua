@@ -1,5 +1,11 @@
 var terminal = "kitty"
 
+hl.env("XCURSOR_SIZE", 24)
+hl.env("HYPRCURSOR_SIZE", 24)
+
+hl.env("XDG_CONFIG_HOME", $HOME/.config)
+hl.env("XDG_DATA_HOME", $HOME/.local/share)
+
 -- Nvidia stuff
 hl.env("NVD_BACKEND", "direct")
 hl.env("GBM_BACKEND", "nvidia-drm")
