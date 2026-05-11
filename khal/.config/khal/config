@@ -1,0 +1,41 @@
+[calendars]
+
+[[default]]
+path = ~/.local/share/calendars/default/
+color = '#cba6f7'
+
+[[work]]
+path = ~/.local/share/calendars/work-events/
+color = '#89b4fa'
+
+[[important]]
+path = ~/.local/share/calendars/important-events/
+color = '#f38ba8'
+
+[[birthdays]]
+path = ~/.local/share/calendars/birthday-calendar/
+color = '#a6e3a1'
+
+[[todo]]
+path = ~/.local/share/calendars/todo-cal/
+color = '#fab387'
+
+[sqlite]
+path = ~/.local/share/khal/khal.db
+
+[locale]
+timeformat = %H:%M
+dateformat = %d/%m/%Y
+longdateformat = %d/%m/%Y
+datetimeformat = %d/%m/%Y %H:%M
+longdatetimeformat = %d/%m/%Y %H:%M
+firstweekday = 0
+
+[default]
+default_calendar = default
+timedelta = 7d
+
+[view]
+event_view_always_visible = false
+dynamic_days = false
+frame = width

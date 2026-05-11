@@ -1,0 +1,19 @@
+[general]
+status_path = "~/.local/share/vdirsyncer/status/"
+
+[pair calendars]
+a = "calendars_local"
+b = "calendars_remote"
+collections = ["from a", "from b"]
+conflict_resolution = "b wins"
+
+[storage calendars_local]
+type = "filesystem"
+path = "~/.local/share/calendars/"
+fileext = ".ics"
+
+[storage calendars_remote]
+type = "caldav"
+url = "http://192.168.1.10:9001/dav"
+username = "yori"
+password = "3117"

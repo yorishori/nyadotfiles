@@ -47,7 +47,7 @@
     "clock": {
         "format": "{:%H:%M  %a %d %b}",
         "tooltip": false,
-        "on-click": "nylaunch.sh cal"
+        "on-click": "nylaunch.sh ikhal"
     },
 
     "custom/mic": {

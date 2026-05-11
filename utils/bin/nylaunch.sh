@@ -12,13 +12,14 @@ APP_CFG[impala]="nya-impala|80|24|impala"
 APP_CFG[pulsemixer]="nya-pulsemixer|80|24|pulsemixer"
 APP_CFG[pacseek]="nya-pacseek|100|30|pacseek"
 APP_CFG[btop]="nya-btop|130|38|btop"
-APP_CFG[services]="nya-services|140|40|fzf-services.sh"
+APP_CFG[services]="nya-services|130|38|fzf-services.sh"
 APP_CFG[yazi]="nya-yazi|130|38|yazi"
+APP_CFG[ikhal]="nya-ikhal|80|24|ikhal"
 
 
 
 if [[ -z "$APP" || -z "{APP_CFG[$APP]}" ]]; then
-    echo "Usage: nylaunch.sh <bluetui|impala|pulsemixer|pacseek|btop|services>" >&2
+    echo "Usage: nylaunch.sh <bluetui|impala|pulsemixer|pacseek|btop|services|yazi|ikhal>" >&2
     exit
 fi
 
