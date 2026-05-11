@@ -4,12 +4,11 @@ configuration {
     modi:           "dmenu";
     show-icons:     false;
     disable-history: true;
-
-    display-dmenu: " ";
 }
 
 window {
     width: 500px;
+    border-color: @rosewater;
 }
 
 listview {

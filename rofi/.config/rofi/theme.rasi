@@ -38,6 +38,7 @@
     text-secondary:     @subtext0;
     text-selected:      @lavender;
     text-active:        @green;
+    text-urgent:        @red;
 
     /* ── Rofi resets ───────────────────────────────────────────── */
     background-color:   transparent;

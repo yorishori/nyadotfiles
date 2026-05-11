@@ -32,7 +32,7 @@ hl.window_rule({
     match = { class = "^(nya-.*)$" },
     center = true,
     float = true,
-    stay_focused = true
+    dim_around = true
 })
 
 

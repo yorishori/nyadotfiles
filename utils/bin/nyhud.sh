@@ -17,12 +17,20 @@ RECORDING_PID="/tmp/nya-recording.pid"
 
 # -- Rofi actions
 rofi_running() {
-    [[ -f "$ROFI_PID" ]] && kill -0 "$(cat "$ROFI_PID")" 2>/dev/null
+    # Check pidfile AND actual rofi window exists
+    if [[ -f "$ROFI_PID" ]] && kill -0 "$(cat "$ROFI_PID")" 2>/dev/null; then
+        return 0
+    fi
+    # Fallback: check for any rofi window (catches rofimoji's spawned rofi)
+    hyprctl clients -j | grep -q '"class": "rofi"'
 }
- 
+
 rofi_kill() {
     if rofi_running; then
-        kill "$(cat "$ROFI_PID")" 2>/dev/null
+        # Kill tracked pid if we have one
+        [[ -f "$ROFI_PID" ]] && kill "$(cat "$ROFI_PID")" 2>/dev/null
+        # Also kill any rofi window directly
+        pkill -x rofi 2>/dev/null
         rm -f "$ROFI_PID" "$ROFI_CURRENT"
         sleep 0.1
     fi
@@ -164,7 +172,7 @@ rofi_clipboard() {
     local choice_display choice_original
     choice_display=$(echo "$display_entries" \
         | rofi_open clipboard \
-            rofi -dmenu \
+            rofi -dmenu -p " " \
                  -theme ~/.config/rofi/clipboard.rasi) || return
  
     # Match display choice back to original entry for decode
@@ -182,6 +190,7 @@ rofi_emoji() {
             --files emoji symbols kaomoji \
             --skin-tone neutral \
             --hidden-descriptions \
+            --prompt " " \
             --selector-args '-theme ~/.config/rofi/emoji.rasi'
 }
 

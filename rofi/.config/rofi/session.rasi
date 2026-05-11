@@ -9,6 +9,7 @@ configuration {
 window {
     width:  260px;
     padding: 12px;
+    border-color: @red;
 }
 
 mainbox {
@@ -16,37 +17,32 @@ mainbox {
     spacing:    0px;
 }
 
-listview {
-    orientation:    horizontal;
-    columns:        3;
-    lines:          1;
-    spacing:        4px;
-    scrollbar:      false;
-    dynamic:        false;
-}
-
-/* No inputbar at all */
 inputbar {
     enabled: false;
 }
 
-element {
-    orientation:        vertical;
-    border-radius:      8px;
-    padding:            16px 20px;
-    background-color:   transparent;
-    horizontal-align:   0.5;
+listview {
+    lines:      3;
+    spacing:    2px;
+    scrollbar:  false;
+    dynamic:    false;
 }
 
-element selected {
+element {
+    border-radius:      8px;
+    padding:            10px 14px;
+    background-color:   transparent;
+}
+
+element selected normal,
+element selected active {
     background-color:   @bg-selected;
     text-color:         @text-selected;
 }
 
 element-text {
-    font:               "JetBrainsMono Nerd Font 22";
-    horizontal-align:   0.5;
-    vertical-align:     0.5;
+    font:           "JetBrainsMono Nerd Font 12";
+    vertical-align: 0.5;
 }
 
 element-icon {

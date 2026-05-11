@@ -8,6 +8,7 @@ configuration {
 
 window {
     width: 520px;
+    border-color: @green;
 }
 
 listview {

@@ -10,10 +10,11 @@ configuration {
 
     display-calc: " ";
     display-drun: " ";
- }
+}
 
 window {
     width: 480px;
+    border-color:@sapphire;
 }
 
 listview {
@@ -27,7 +28,7 @@ prompt {
 }
 
 entry {
-    placeholder:        "Launch app...";
+    placeholder:        "";
     placeholder-color:  @text-secondary;
 }
 

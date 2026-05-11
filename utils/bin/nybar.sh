@@ -12,26 +12,26 @@ json () {
 }
 
 mod_mic() {
-    local source muted alsa_idx dev icon class
+    local source muted state
 
     source=$(pactl get-default-source 2>/dev/null)
-    muted=$(pactl get-source-mute "$source" 2>/dev/null | grep -oP '(yes|no)')
 
     if [[ -z "$source" ]]; then
-        json "󰍭" "" "muted"
+        json "󰍭" "" "warning"
         return
     fi
+
+    muted=$(pactl get-source-mute "$source" 2>/dev/null | grep -oP '(yes|no)')
 
     if [[ "$muted" == "yes" ]]; then
         json "󰍭" "" "error"
         return
     fi
 
-    # Map pactl source to ALSA card index, check if anything is capturing
-    alsa_idx=$(pactl list sources short | awk -v src="$source" '$2==src{print $1}')
-    dev="/dev/snd/pcmC${alsa_idx}D0c"
+    state=$(pactl list sources 2>/dev/null \
+        | awk '/State:/{state=$2} /Name: '"$source"'/{print state; exit}')
 
-    if fuser "$dev" &>/dev/null; then
+    if [[ "$state" == "RUNNING" ]]; then
         json "󰍬" "" "active"
     else
         json "󰍬" "" "muted"
@@ -135,18 +135,11 @@ mod_audio() {
     json "$icon" "${vol}%" "active"
 }
 
-mod_updates() {
-    local cache="/tmp/nya-updates"
+mod_updates() { 
+    local pac aur
+    pac=$(checkupdates 2>/dev/null | wc -l)
+    aur=$(yay -Qua 2>/dev/null | wc -l)
  
-    # Populate cache if missing (Waybar's interval triggers the refresh)
-    if [[ ! -f "$cache" ]]; then
-        local pac aur
-        pac=$(checkupdates 2>/dev/null | wc -l)
-        aur=$(yay -Qua 2>/dev/null | wc -l)
-        echo "${pac}:${aur}" > "$cache"
-    fi
- 
-    IFS=':' read -r pac aur < "$cache"
     local total=$(( pac + aur ))
  
     if (( total == 0 )); then

@@ -9,6 +9,7 @@ configuration {
 window {
     width:  320px;
     padding: 12px;
+    border-color: @peach;
 }
 
 mainbox {
