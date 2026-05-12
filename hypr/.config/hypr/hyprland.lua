@@ -1,7 +1,9 @@
-require("environment")
-require("keybinds")
-require("lookNfeel")
-require("rules")
+hl.env("XCURSOR_SIZE", 24)
+hl.env("HYPRCURSOR_SIZE", 24)
+
+require("extra/keybinds")
+require("extra/lookNfeel")
+require("extra/rules")
 
 hl.monitor({ 
 	output = "DP-3", 
