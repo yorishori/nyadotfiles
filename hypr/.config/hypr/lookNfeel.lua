@@ -1,21 +1,22 @@
 local cm = require("mocha")
 
-hl.general({
-    gaps_in = 4,
-    gaps_out = 4,
-    border_size = 1,
-    col.active_border = cm.lavender,
-    col.inactive_border = cm.mantle,
-    resize_on_border = false,
-    allow_tearing = false,
-    layout = "dwindle"
-})
-
-hl.decoration({
-    rounding = 10,
-    rounding_power = 2,
-    active_opacity = 1.0,
-    inactive_opacity = 0.9,
+hl.config({
+    general = {
+        gaps_in = 4,
+        gaps_out = 4,
+        border_size = 1,
+        --col.active_border = {color = cm.lavender},
+        --col.inactive_border = {color = cm.mantle},
+        resize_on_border = false,
+        allow_tearing = false,
+        layout = "dwindle"
+    },
+    decoration = {
+        rounding = 10,
+        rounding_power = 2,
+        active_opacity = 1.0,
+        inactive_opacity = 0.9,
+    }
 })
 
 -- Bezier curves

@@ -6,7 +6,10 @@ configuration {
     icon-theme:         "Papirus-Dark";
     disable-history:    false;
     scroll-method:      1;
+    kb-element-next:    "Shift+Right,Control+Tab";
+    kb-element-prev:    "Shift+Left,Control+ISO_Left_Tab";
     kb-mode-next:       "Tab";
+    kb-mode-previous:   "ISO_Left_Tab";
 
     display-calc: " ";
     display-drun: " ";

@@ -74,6 +74,7 @@ window#waybar {
 #clock:hover,
 #custom-mic:hover,
 #custom-screenrec:hover,
+#tray:hover,
 #custom-bluetooth:hover,
 #custom-network:hover,
 #custom-audio:hover,
@@ -130,6 +131,11 @@ window#waybar {
     border-radius: 99px;
     transition: color 0.15s ease, background 0.15s ease;
 }
+
+#workspaces button:hover{
+    color: @blue;
+}
+
 #workspaces button.active {
     color: @mauve;
 }

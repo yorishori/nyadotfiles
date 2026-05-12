@@ -3,7 +3,12 @@ require("keybinds")
 require("lookNfeel")
 require("rules")
 
-hl.monitor({ output = "DP-3", mode = "2560x1440@120", position = "0x0", scale = 1 })
+hl.monitor({ 
+	output = "DP-3", 
+	mode = "2560x1440@120", 
+	position = "0x0", 
+	scale = 1 
+})
 
 hl.on("hyprland.start", function()
     hl.exec_cmd("dbus-update-activation-environment --systemd GTK_USE_PORTAL=1")
@@ -20,7 +25,6 @@ end)
 
 hl.config({
     dwindle = {
-        pseudotile    = true,
         preserve_split = true,
         force_split   = 2
     },

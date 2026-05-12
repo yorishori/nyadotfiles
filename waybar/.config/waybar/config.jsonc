@@ -78,7 +78,7 @@
 
     "hyprland/workspaces": {
         "format": "{icon}",
-        "on-click": "activate",
+        "on-click": "hyprctl dispatch workspace {name}",
         "sort-by-number": true,
         "active-only": false,
         "persistent-workspaces": {},
