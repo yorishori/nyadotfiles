@@ -22,7 +22,7 @@ hl.bind("SUPER + SHIFT + RIGHT", hl.dsp.window.move({direction = "r"}))
 for i = 1, 9 do
     hl.bind("SUPER + SHIFT + " .. i, hl.dsp.window.move({workspace = i, follow = true}))
 end
-hl.bind("SUPER + SHIFT + S", hl.dsp.window.move({ workspace = "special:special" }))
+hl.bind("SUPER + SHIFT + S", hl.dsp.window.move({ workspace = "special:special", follow = false }))
 
 -- Navigation
 hl.bind("SUPER + UP", hl.dsp.focus({direction = "u"}))

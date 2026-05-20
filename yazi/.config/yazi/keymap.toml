@@ -1,17 +1,28 @@
 [mgr]
 prepend_keymap = [
-    { on = [ "?" ], run = "help", desc = "Open help" },
-    { on = [ "q" ], run = "quit", desc = "Quit without picking" },
-    { on = [ "M" ], run = "plugin mount", desc = "Open Mounting Plugin" },
-    { on = [ "g", "g"], run = "plugin lazygit", desc = "Open LazyGit" },
-    { on = [ "g", "x"], run = "plugin chmod", desc = "Change Permisions" },
-    { on = [ "g", "c"], run = "plugin ouch", desc = "Compress with ouch" },
+    # =======================================================================
+    # Core Essentials
+    # =======================================================================
+    { on = [ "?" ], run = "help", desc = "Core: Open help menu" },
+    { on = [ "q" ], run = "quit", desc = "Core: Quit without picking" },
+    { on = [ "w" ], run = "show", desc = "Core: See active tasks/proceses" },
+
+
+    # =======================================================================
+    # Plugins (Prefix: \ )
+    # Pressing '\' will pop up a menu showing these options:
+    # =======================================================================
+    { on = [ "\\", "m" ], run = "plugin mount",   desc = "Plugin: Open drive mounting manager" },
+    { on = [ "\\", "v" ], run = "plugin gvfs",    desc = "Plugin: Open GVFS manager (Network/Trash)" },
+    { on = [ "\\", "c" ], run = "plugin ouch",    desc = "Plugin: Compress or Decompress (ouch)" },
+    { on = [ "\\", "p" ], run = "plugin chmod",   desc = "Plugin: Change permissions (chmod)" },
+    { on = [ "\\", "g" ], run = "plugin lazygit", desc = "Plugin: Open LazyGit UI" },
+    { on = [ "\\", "f" ], run = "plugin yafg",    desc = "Plugin: Fuzzy find/grep (yafg)" },
     { 
-        on = [ "g", "y"]
-        , run = "shell 'file=\"$1\"; mime=$(file --mime-type -b \"$file\"); wl-copy --type \"$mime\" < \"$file\" && notify-send \"Clipboard\" \"Copied $(basename \"$file\")\"'"
-        , desc = "Copy file to clipboard" 
+        on   = [ "\\", "y" ], 
+        run  = "shell 'file=\"$1\"; mime=$(file --mime-type -b \"$file\"); wl-copy --type \"$mime\" < \"$file\" && notify-send \"Yazi\" \"Copied $(basename \"$file\") to clipboard\"'", 
+        desc = "Plugin: Yank file content to Wayland clipboard" 
     },
-    { on = ["g", "z"], run = "plugin yafg", desc = "Fuzzy grep."}
 ]
 
 [pick]
