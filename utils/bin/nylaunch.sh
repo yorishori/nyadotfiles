@@ -29,17 +29,23 @@ window_exists() {
     hyprctl clients -j | grep -q "\"class\": \"$CLASS\""
 }
 
-kill_window() {
-    hyprctl clients -j \
+focus_window() {
+    local addr
+    addr=$(hyprctl clients -j \
         | grep -B20 "\"class\": \"$CLASS\"" \
-        | grep '"pid"' \
+        | grep '"address"' \
         | tail -1 \
-        | grep -oP '\d+' \
-        | xargs -r kill
+        | grep -oP '0x[0-9a-f]+')
+
+    local ws
+    ws=$(hyprctl activeworkspace -j | grep -oP '"id":\s*\K\d+' | head -1)
+
+    hyprctl dispatch 'hl.dsp.window.move({window = "address:'"$addr"'", workspace = '"$ws"'})'
+    hyprctl dispatch 'hl.dsp.focus({window = "address:'"$addr"'"})'
 }
 
 if window_exists; then
-    kill_window
+    focus_window
     exit 0
 fi
 

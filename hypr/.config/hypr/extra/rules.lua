@@ -35,4 +35,9 @@ hl.window_rule({
     dim_around = true
 })
 
-
+hl.window_rule({ 
+    match = { workspace = "special:special" }, 
+    float = true,
+    center = false,
+    pseudo = true
+})

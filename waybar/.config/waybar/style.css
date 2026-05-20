@@ -41,7 +41,7 @@
 /* ── Bar ────────────────────────────────────────────────── */
 window#waybar {
     background-color: @base;
-    border-bottom: 1px solid @lavender;
+    border-bottom: 1px solid @sapphire;
     padding: 0;
     margin-top: 0px;
     margin-bottom: 5px;

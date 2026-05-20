@@ -1,7 +1,7 @@
 @import "theme.rasi"
 
 configuration {
-    modi:               "drun,calc";
+    modi:               "drun,calc,window,ssh";
     show-icons:         true;
     icon-theme:         "Papirus-Dark";
     disable-history:    false;
@@ -13,6 +13,8 @@ configuration {
 
     display-calc: " ";
     display-drun: " ";
+    display-window: "󱂬 ";
+    display-ssh: " ";
 }
 
 window {
