@@ -1,63 +1,42 @@
-
 # ── Paths ─────────────────────────────────────────────────────────────────────
 directory: /mnt/server-nya/music/library
 library: ~/.local/share/beets/library.db
- 
+
 # ── Import behaviour ──────────────────────────────────────────────────────────
 import:
-  copy: yes         # copy from inbox to library
-  move: no          # don't delete source until you're happy (nya-inbox handles move)
-  write: yes        # write corrected tags to files on import
+  move: yes         # Matches your script's behavior (moves from inbox to library)
+  copy: no          
+  write: yes        # Writes corrected tags to files on import
   log: ~/.local/share/beets/import.log
-  timid: yes        # ask even on high-confidence matches — you want to review
+  timid: yes        # Asks for confirmation even on high-confidence matches
+  group_albums: yes # Groups messy inbox files logically instead of by folder
   languages: en
-  # default missing fields
+  
   default_fields:
     tracknumber: 1
     disc: 1
- 
+
 # ── Path format ───────────────────────────────────────────────────────────────
 paths:
   default: $albumartist/$album/%02d$track - $title
   singleton: $albumartist/Singles/$title
   comp: Various Artists/$album/%02d$track - $title
- 
+
 # ── Plugins ───────────────────────────────────────────────────────────────────
 plugins:
   - fetchart
   - embedart
-  - lastgenre
-  - edit
-  - duplicates
-  - missing
- 
+
 # ── Album art ─────────────────────────────────────────────────────────────────
 fetchart:
   auto: yes
   sources:
-    - filesystem   # checks for cover.jpg/folder.jpg in the source folder first
-    - coverart     # MusicBrainz Cover Art Archive
+    - filesystem    # checks for cover.jpg/folder.jpg in the source folder first
+    - coverart      # MusicBrainz Cover Art Archive
     - itunes
     - amazon
     - wikipedia
- 
+
 embedart:
   auto: yes
   maxwidth: 1000
- 
-# ── Genres ────────────────────────────────────────────────────────────────────
-lastgenre:
-  api_key: ************* 
-  auto: yes
-  force: no         # won't overwrite genres you set manually
-  count: 3          # up to 3 genres if Last.fm has them
-  separator: "; "   # matches your semicolon convention
-  source: album     # fetch genre at album level, not per-track
- 
-# ── Editor ────────────────────────────────────────────────────────────────────
-editor: nvim        # used by `beet edit`
- 
-# ── UI ────────────────────────────────────────────────────────────────────────
-ui:
-  color: yes
-
